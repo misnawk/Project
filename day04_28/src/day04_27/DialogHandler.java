@@ -6,17 +6,12 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 // 클라이언트로부터 메시지를 처리하는 클래스
 public class DialogHandler {
-
 //	DialogForm dialogForm = new DialogForm();
 
 	// 서버로부터 메시지를 수신하고 처리하는 메서드
-	public void messageReceived(JFrame frame, JLabel messageLbl) {
+	public void messageReceived() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -34,13 +29,14 @@ public class DialogHandler {
 
 						// 클라이언트로부터 메시지 수신
 						String message = reader.readLine();
-						DialogForm dialogForm = DialogForm.getInstance();
-						dialogForm.processSocketMessage(message);
-						System.out.println("메세지를 보냄");
+						DialogForm.dialogForm().processSocketMessage(message);
+//						dialogForm.processSocketMessage(message); // dialogForm에게 메세지 전송
+//						System.out.println("메세지를 보냄");
+
 //						messageLbl.setText(message);
 
 						// 메시지 다이얼로그로 표시
-						JOptionPane.showMessageDialog(frame, message);
+//						JOptionPane.showMessageDialog(frame, message);
 
 //						dialogForm.processSocketMessage(message); // 메시지 처리 메서드 호출
 
