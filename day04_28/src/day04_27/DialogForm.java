@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,7 +13,6 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 
 public class DialogForm {
-
 	private JFrame frame;
 	private JLabel label;
 	private JPanel menuPanel;
@@ -24,6 +21,7 @@ public class DialogForm {
 	private JLabel messageLabel;
 	private JButton order_button_ok;
 	private JButton order_button_cancel;
+	private String content;
 	private static DialogForm instance;
 
 	private DialogForm() {
@@ -145,6 +143,7 @@ public class DialogForm {
 	public void processSocketMessage(String message) {
 		createMenuPanel();
 		// 메시지 라벨을 생성합니다.
+//		sort(message.toString());
 
 		messageLabel = new JLabel(message);
 //		newLabel.setBounds(30, menuPanel.getComponentCount() * 0, 100, 100);
@@ -153,44 +152,64 @@ public class DialogForm {
 		messageLabel.setOpaque(false);
 		label.add(messageLabel);
 
-		Insets insets = new Insets(10, 10, 10, 10); // 위, 왼쪽, 아래, 오른쪽 여백 설정
-		GridBagConstraints gbc = new GridBagConstraints();
+//		Insets insets = new Insets(10, 10, 10, 10); // 위, 왼쪽, 아래, 오른쪽 여백 설정
+//		GridBagConstraints gbc = new GridBagConstraints();
 
 		order_button_ok = new JButton("OK"); // 주문확인버튼 생성
 		order_button_ok.setFont(new Font("Arial", Font.PLAIN, 20));
 		order_button_ok.setBounds(10, 10, 70, 30);
 		order_button_ok.setContentAreaFilled(false);
-		gbc.insets = insets;
-		menuPanel.add(order_button_ok, gbc);
+//		gbc.insets = insets;
+		menuPanel.add(order_button_ok);
+		System.out.println("ok버튼 장착");
 
-		order_button_cancel = new JButton("NO"); // 주문취소 버튼
+		order_button_cancel = new JButton("NO"); // 주문취소버튼 생성
 		order_button_cancel.setFont(new Font("Arial", Font.PLAIN, 20));
 		order_button_cancel.setBounds(70, 10, 70, 30);
 		order_button_cancel.setContentAreaFilled(false);
-		gbc.insets = insets;
-		menuPanel.add(order_button_cancel, gbc);
-//
-//		// 메뉴 패널에 메시지 라벨을 추가합니다.
-//		small.add(newLabel);
-//
-//		// 변경 사항을 반영하기 위해 패널을 다시 그립니다.
-//		small.revalidate();
-//		small.repaint();
+//		gbc.insets = insets;
+		menuPanel.add(order_button_cancel);
+		System.out.println("취소버튼장착");
+		repaint();
+
 	}
 
 	private void createMenuPanel() {
 		// 메뉴를 나타내는 JPanel 객체 생성 및 추가
 
-		menuPanel = new JPanel(); // 주문확인, 주문취소 판넬
+		menuPanel = new JPanel(); // 주문확인버튼, 주문취소버튼 판넬
 		menuPanel.setBounds(430, 10, 150, 60);
 		menuPanel.setOpaque(false); // 배경색 투명하게
 		small.add(menuPanel);
 
-		label = new JLabel();
-		label.setBorder(new LineBorder(Color.black)); // 검정색 박스
+		label = new JLabel();// 데이터가 들어가는 공간
+		label.setBorder(new LineBorder(Color.black)); // 검정색 테두리 추가
 		label.setBounds(5, 10, 580, 50);
 		menuPanel.setLayout(null);
 		small.add(label);
 
+	}
+
+	public void repaint() {
+//		frame.revalidate(); // 크기가 변하면 초기화하는방법
+//		menuPanel.revalidate();
+//		label.revalidate();
+//		messageLabel.revalidate();
+		small.repaint(); // 내용물이 변하면 초기화하는방법
+
+	}
+
+	public void sort(String data) {
+		String[] items = data.split("@");
+		for (String s : items) {
+			content = s;
+		}
+
+		//
+//		         // 배열의 각 문자열에 대해 ';'을 공백으로 대체
+//		         for (int i = 0; i < items.length; i++) {
+//		             items[i] = items[i].replace(";", "     ");
+//		         }
+		//
 	}
 }

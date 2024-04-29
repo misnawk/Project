@@ -29,7 +29,9 @@ public class DialogHandler {
 
 						// 클라이언트로부터 메시지 수신
 						String message = reader.readLine();
+//						DialogForm.dialogForm().sort(message);
 						DialogForm.dialogForm().processSocketMessage(message);
+
 //						dialogForm.processSocketMessage(message); // dialogForm에게 메세지 전송
 //						System.out.println("메세지를 보냄");
 
