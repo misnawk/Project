@@ -1,0 +1,29 @@
+:root {
+  /* colors */
+  --color-blue-01: #2379ff;
+  --color-blue-02: #002765;
+  --color-blue-03: #d8f3ff;
+
+  --color-black-01: #000000;
+  --color-black-02: #374553;
+  --color-black-03: #646f7c;
+
+  --color-purple-01: #8f69dd;
+  --primary-purple-300: #8f69dd;
+  --primary-purple-200: #bea9ed;
+  --primary-purple-100: #d8cbf4;
+  --primary-purple-50: #f0eafa;
+
+  /* fonts */
+  --font-size-nomal: 16px;
+  /* 여백 및 간격 */
+  --base-padding: 1rem;
+  --max-widht: 1200px;
+  /* 테두리 */
+  --border-radius: 8px;
+  /* 그림자 */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* 전환효과 */
+  --transtition-fast: 0.3s;
+}
