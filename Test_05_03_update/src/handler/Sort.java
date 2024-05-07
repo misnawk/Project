@@ -6,13 +6,18 @@ public class Sort {
 	private String message;
 	public String[] items;
 	private String temp = "";
+	private String[] temp_1;
 
 	public Sort(String message) {
 
 		this.message = message;
 	}
 
-	public String sort(String message) {
+	public Sort() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String[] sort(String message) {
 		int lastIndex = message.lastIndexOf("@");
 		String result = message.substring(0, lastIndex);
 
@@ -26,8 +31,9 @@ public class Sort {
 
 			temp += name + " " + count + "개 " + price + "원;";
 		}
-		System.out.println(temp);
-		return temp;
+
+		temp_1 = temp.split(";");
+		return temp_1;
 	}
 
 }

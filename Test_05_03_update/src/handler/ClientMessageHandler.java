@@ -5,35 +5,17 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import createMenuPanel.CreateMenuPanel;
+import view.DialogForm;
 
 // 클라이언트로부터 메시지를 처리하는 클래스
 public class ClientMessageHandler {
 
 	private static ClientMessageHandler instance_client;
-
-	private JPanel bigBox;
-	private JScrollPane scrollPane;
-	private JPanel small;
-	private JFrame frame;
-	private JLabel menuPanel;
-	private String string_Data;
-	ArrayList<String> menu_name = new ArrayList<>();
-	ArrayList<Integer> menu_count = new ArrayList<>();
-	ArrayList<Integer> menu_price = new ArrayList<>();
-
-	private String only_text;
-	private JLabel name_label;
-	private JLabel count_label;
-	private JLabel price_label;
-	private static int small_hight = 350;
 
 	private ClientMessageHandler() {
 
@@ -89,22 +71,18 @@ public class ClientMessageHandler {
 
 	public void Start(String message) {
 
-		Sort sort = new Sort(message);
-		String sortdItems = sort.sort(message);
-///////////////////////////////////////////////////////////////////
-		CreateMenuPanel.getInstance().get(sortdItems);
+		Sort sort = new Sort();
+		String temp[] = sort.sort(message);
 
+		System.out.println(temp + "값 출력");
 ///////////////////////////////////////////////////////////////////
-
-		clearData();
-		System.out.println("clearData 실행되냐?");
+		CreateMenuPanel.getInstance().set(temp);
+		System.out.println(temp + "값을 Create클래스에 넣음");
+///////////////////////////////////////////////////////////////////
+		DialogForm.getInstance().set_show();
+		DialogForm.getInstance().show();
+///////////////////////////////////////////////////////////////////
 
 	}
 
-	public void clearData() {
-
-		menu_name.clear(); // ArrayList 비우기
-		menu_count.clear(); // ArrayList 비우기
-		menu_price.clear(); // ArrayList 비우기
-	}
 }

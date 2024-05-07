@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import createMenuPanel.CreateMenuPanel;
 import handler.ClientMessageHandler;
 
 // GUIManager 클래스는 GUI를 관리하고 생성합니다.
@@ -48,6 +49,12 @@ public class GUIManager {
 	// GUI를 표시합니다.
 	public void show() {
 		frame.setVisible(true);
+	}
+
+	public void set() {
+		CreateMenuPanel.getInstance().create_gui(menuPanel);
+		menuPanel.repaint();
+
 	}
 
 	// GUI를 초기화합니다.

@@ -11,9 +11,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import createMenuPanel.CreateMenuPanel;
 
 public class DialogForm {
 	private static DialogForm instance_DialogForm;
@@ -22,6 +23,7 @@ public class DialogForm {
 	private JPanel small;
 	private int small_hight;
 	private JFrame jFrame;
+	private JDialog dialog;
 
 	public static DialogForm getInstance() {
 		if (instance_DialogForm == null) {
@@ -30,12 +32,22 @@ public class DialogForm {
 		return instance_DialogForm;
 	}
 
-	public void setDialog(JFrame frame, JPanel jPanel, JLabel jLabel) {
+	public void set_show() {
+		Dialog();
+		CreateMenuPanel.getInstance().create_dialog(small);
+
+	}
+
+	public void show() {
+		dialog.setVisible(true);
+	}
+
+	public void Dialog() {
 		System.out.println("show시작");
 		jFrame = new JFrame();
 
 		// 다이얼로그 생성
-		JDialog dialog = new JDialog(jFrame, Dialog.ModalityType.APPLICATION_MODAL);
+		dialog = new JDialog(jFrame, Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setTitle("Message Dialog"); // 다이얼로그 제목 설정
 		dialog.setSize(800, 600);
 		dialog.setLocationRelativeTo(jFrame);
@@ -99,9 +111,7 @@ public class DialogForm {
 			public void actionPerformed(ActionEvent e) {
 				// 확인 버튼이 클릭되었을 때 처리할 내용
 				// 데이터를 다른 클래스로 전달하는 예시
-
-//				GUIManager.getInstance1().Create(item);
-
+				GUIManager.getInstance1().set();
 				dialog.dispose();
 
 			}
@@ -121,7 +131,7 @@ public class DialogForm {
 		});
 
 //		processSocketMessage(message);
-		dialog.setVisible(true);
+
 		////////////////////////////////////////////////////////////////////////////////////////
 
 	}
