@@ -8,10 +8,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import handler.ClientMessageHandler;
+
 // GUIManager 클래스는 GUI를 관리하고 생성합니다.
 public class GUIManager {
-	private static GUIManager instance1;
 
+	private static GUIManager instance1;
 	private JFrame frame; // JFrame 객체
 	private JPanel pan_1; // JPanel 객체
 	private JPanel pan_2; // JPanel 객체
@@ -46,46 +48,6 @@ public class GUIManager {
 	// GUI를 표시합니다.
 	public void show() {
 		frame.setVisible(true);
-	}
-
-	public void Create(String[] data) {
-		String[] item = data;
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
-		for (String s : item) {
-			System.out.println(s + "Create 메서드로 데이터받음");
-		}
-
-		label_panel = new JPanel();
-		label_panel.setBounds(10, yPosition, 500, 50);
-		label_panel.setLayout(null);
-		menuPanel.add(label_panel);
-
-		name_label = new JLabel();
-		name_label.setBounds(5, 5, 400, 40);
-		name_label.setLayout(null);
-		label_panel.add(name_label);
-
-		String temp = "";
-
-		for (int i = 0; i < item.length; i++) {
-
-			String[] str = item[i].split(";"); // 바나나킥 1 3000 >> 바나나킥 1개 ,
-
-			temp += str[0] + " " + str[1] + "개, ";
-
-			System.out.println(temp + "템프나오냐@@@@@@@@@22");
-
-			// 문자열이 쉼표로 끝나는지 확인하고 쉼표를 제거합니다.
-
-		}
-		// 맨마지막 2개의 문자를 지우면됩니다.
-
-		name_label.setText(temp.substring(0, temp.length() - 2));
-
-		menuPanel.repaint();
-		label_panel.repaint();
-
 	}
 
 	// GUI를 초기화합니다.
@@ -134,9 +96,7 @@ public class GUIManager {
 		///////////////////////////////////////////////////////////////////////////////////////
 
 		// 클라이언트 메시지 핸들러 생성 및 메시지 수신 기능 실행
-		ClientMessageHandler cmHandler = new ClientMessageHandler();
-		cmHandler.messageReceived(frame, messageLbl);
-		System.out.println("메세지 넘겨줬냐");
+		ClientMessageHandler.getIntance().messageReceived(frame, messageLbl);
 	}
 
 }
