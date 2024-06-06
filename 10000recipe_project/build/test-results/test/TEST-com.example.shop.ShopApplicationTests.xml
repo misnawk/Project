@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.shop.ShopApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-06T16:52:40" hostname="MINBOOK" time="0.398">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.shop.ShopApplicationTests" time="0.398"/>
+  <system-out><![CDATA[01:52:35.727 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.shop.ShopApplicationTests]: ShopApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:52:35.829 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.shop.ShopApplication for test class com.example.shop.ShopApplicationTests
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2024-06-07T01:52:36.230+09:00  INFO 1296 --- [    Test worker] com.example.shop.ShopApplicationTests    : Starting ShopApplicationTests using Java 17.0.9 with PID 1296 (started by kms13 in C:\Users\kms13\Desktop\project\10000recipe_project)
+2024-06-07T01:52:36.231+09:00  INFO 1296 --- [    Test worker] com.example.shop.ShopApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-06-07T01:52:36.868+09:00  INFO 1296 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-07T01:52:36.936+09:00  INFO 1296 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2024-06-07T01:52:37.399+09:00  INFO 1296 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-07T01:52:37.460+09:00  INFO 1296 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-07T01:52:37.492+09:00  INFO 1296 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-07T01:52:37.803+09:00  INFO 1296 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-07T01:52:37.841+09:00  INFO 1296 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-07T01:52:38.073+09:00  INFO 1296 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3de88f64
+2024-06-07T01:52:38.074+09:00  INFO 1296 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-07T01:52:38.113+09:00  WARN 1296 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-07T01:52:38.883+09:00  INFO 1296 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-07T01:52:38.923+09:00  INFO 1296 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-07T01:52:39.469+09:00  WARN 1296 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-07T01:52:39.976+09:00  INFO 1296 --- [    Test worker] com.example.shop.ShopApplicationTests    : Started ShopApplicationTests in 3.968 seconds (process running for 4.95)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
